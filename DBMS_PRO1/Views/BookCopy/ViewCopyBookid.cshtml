@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DBMS_PRO1.Models.BookCopyModel>
+
+@{
+    ViewBag.Title = "ViewCopyBookid";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+        .col {
+            padding: 5px 180px;
+        }
+    </style>
+</head>
+
+<div class="col">
+
+
+    <h2>ViewCopyBookid</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "AddCopyBookid")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Copyid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bookid)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Copyid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bookid)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Copyid }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "DeleteCopyBookid", new { id=item.Copyid })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+

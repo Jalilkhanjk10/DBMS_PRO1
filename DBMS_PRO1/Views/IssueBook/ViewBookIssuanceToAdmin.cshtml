@@ -1,0 +1,73 @@
+﻿@model IEnumerable<DBMS_PRO1.Models.IssueModel>
+
+@{
+    ViewBag.Title = "ViewBookIssuanceToAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+        .col {
+            padding: 5px 250px;
+        }
+    </style>
+</head>
+
+<div class="col">
+
+    <h2>ViewBookIssuanceToAdmin</h2>
+
+    @*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookIssuanceid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookIssuancedate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bookid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Memberid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bookduedate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookIssuanceid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookIssuancedate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bookid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Memberid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bookduedate)
+                </td>
+                @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>*@
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+

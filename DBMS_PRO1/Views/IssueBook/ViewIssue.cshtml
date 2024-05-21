@@ -1,0 +1,72 @@
+﻿@model IEnumerable<DBMS_PRO1.Models.ViewBookToUserModel>
+
+@{
+    ViewBag.Title = "ViewIssue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+        .col {
+            padding: 5px 180px;
+        }
+    </style>
+</head>
+
+<div class="col">
+
+    <h2>Issue Book</h2>
+
+    <p>
+        @Html.ActionLink("Show My Issued Book", "UserIssuedBook")
+    </p>
+    <table class="table">
+        <tr>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Bookid)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.BookTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublicationDate)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Authorid)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Bookid)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublicationDate)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Authorid)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorName)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                    @Html.ActionLink("Issue", "UserIssuebook", new { Bookid = item.Bookid})
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+

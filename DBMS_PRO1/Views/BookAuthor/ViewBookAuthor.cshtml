@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DBMS_PRO1.Models.BookAuthorModel>
+
+@{
+    ViewBag.Title = "ViewBookAuthor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+        .col {
+            padding: 5px 180px;
+        }
+    </style>
+</head>
+
+<div class="col">
+
+    <h2>Book Authors</h2>
+
+    <p>
+        @Html.ActionLink("Add Book Author", "AddBookAuthor")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorID)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { Bookid = item.BookID, Authorid = item.AuthorID }) |
+                    @Html.ActionLink("Details", "Details", new { Bookid = item.BookID, Authorid = item.AuthorID }) |
+                    @Html.ActionLink("Delete", "Delete", new { Bookid = item.BookID, Authorid = item.AuthorID })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+
